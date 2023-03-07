@@ -44,32 +44,54 @@ window.dataLayer.push({
   <div>Here we can push items to the datalayer</div>
     <button id="Python">Python</button>
  <script>
-  // Create the data layer object
-  var dataLayer = window.dataLayer || [];
+    document.getElementById("purchase").addEventListener("click", function () {
+        gtag("event", "purchase", {
+                // This purchase event uses a different transaction ID
+                // from the previous purchase event so Analytics
+                // doesn't deduplicate the events.
+                // Learn more: https://support.google.com/analytics/answer/12313109
+                transaction_id: "T_12345_2",
+                value: 25.42,
+                tax: 4.90,
+                shipping: 5.99,
+                currency: "USD",
+                coupon: "SUMMER_SALE",
+                items: [
+                {
+                  item_id: "ITM_12345",
 
-  // Push the item parameters to the data layer
-  dataLayer.push({
-    'event': 'view_item_list',
-    'ecommerce': {
-      'items': [{
-        'item_id': 'ITM_12345',
-        'item_name': 'Python',
-        'affiliation': 'online_Course',
-        'currency': 'INR',
-        'discount': 100,
-        'item_brand': 'MOOC',
-        'item_category': 'Python',
-        'item_category2': 'ML',
-        'item_category3': 'DS',
-        'item_category4': 'CS',
-        'item_variant': 'Online',
-        'location_id': 'ChIJIQBpAG2ahYAR_6128GcTUEo',
-        'price': 5000,
-        'quantity': 1
-      }]
-    }
-  });
-</script>
+      item_name: "Python",
+
+      affiliation: "online_Course",
+
+     currency: "INR",
+
+      discount: 100,
+
+      item_brand: "MOOC",
+
+      item_category: "Python",
+
+      item_category2: "ML",
+
+      item_category3: "DS",
+
+      item_category4: "CS",
+
+      item_variant: "Online",
+
+      location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
+
+      price: 5000,
+
+      quantity: 1
+
+                }]
+          });
+      });
+    </script>
+      
+ 
 
 
  
